@@ -91,7 +91,7 @@
                         <h1>
                             @if(isset($data['general_setting']->logo))
                                 <a href="{{isset($data['general_setting']->website)?$data['general_setting']->website:'#'}}">
-                                <img id="avatar"  src="{{ asset('images'.DIRECTORY_SEPARATOR.'setting'.DIRECTORY_SEPARATOR.'general'.DIRECTORY_SEPARATOR.$data['general_setting']->logo) }}" width="200" >
+                                <img id="avatar"  src="{{ asset('images'.DIRECTORY_SEPARATOR.'setting'.DIRECTORY_SEPARATOR.'general'.DIRECTORY_SEPARATOR.$data['general_setting']->logo) }}" width="150" height="100px" style="border-radius:10px" >
                             </a>
                         @else
                             <i class="ace-icon fa fa-3x fa-graduation-cap blue" ></i>
@@ -105,7 +105,7 @@
                         @endif
                             <br>
                             <span class="green" style="font-size: 17pt;">
-                                Information Management System
+                                School Management System
                             </span>
                         </h1>
                     </div>

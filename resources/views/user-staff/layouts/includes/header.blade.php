@@ -7,7 +7,7 @@
         @if(isset($generalSetting->institute))
             {{ $panel }} | {{$generalSetting->institute}}
         @else
-            {{ isset($panel)?$panel:'' }} | UNLIMITED Edu Firm
+            {{ isset($panel)?$panel:'' }} | Amethitech
         @endif
     </title>
 

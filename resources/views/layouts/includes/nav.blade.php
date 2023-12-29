@@ -8,7 +8,7 @@
                         {{$generalSetting->institute}}
                     <strong class="text-capitalize orange2"> LMS </strong>
                     @else
-                        UNLIMITED Edu Firm
+                        Amethitech
                     @endif
                 </small>
             </a>
@@ -193,7 +193,6 @@
                                     <li><a href="{{ route('info.smsemail') }}">Upload/Download</a></li>
                                 </ul>
                             </li>
-
                         </ul>
                     </li>
                 </ul>
@@ -213,7 +212,6 @@
                             &nbsp;
                             <i class="ace-icon fa fa-angle-down bigger-110"></i>
                         </a>
-
                         <ul class="dropdown-menu dropdown-light-blue dropdown-caret">
                             <li> <a href="{{ route('user') }}"> <i class="ace-icon fa fa-users bigger-110 blue"></i> Users </a></li>
                             <li> <a href="{{ route('role') }}"> <i class="ace-icon fa fa-certificate bigger-110 blue"></i> Roles & Permission </a></li>
@@ -230,11 +228,11 @@
         </nav>
         @endability
         @ability('super-admin','super-suit')
-        {{--<nav role="navigation" class="navbar-menu pull-right collapse navbar-collapse">
+        <nav role="navigation" class="navbar-menu pull-right collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        EduFirm Super Suit                        &nbsp;
+                        Amethitech Super Suit                        &nbsp;
                         <i class="ace-icon fa fa-angle-down bigger-110"></i>
                     </a>
 
@@ -248,7 +246,7 @@
                     </ul>
                 </li>
             </ul>
-        </nav>--}}
+        </nav>
         @endability
 
     </div><!-- /.navbar-container -->

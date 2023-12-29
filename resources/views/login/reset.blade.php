@@ -7,7 +7,7 @@
         @if(isset($generalSetting->institute))
             LMS | {{$generalSetting->institute}}
         @else
-            UNLIMITED Edu Firm
+            Amethitech
         @endif
     </title>
 

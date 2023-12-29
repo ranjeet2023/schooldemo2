@@ -994,7 +994,7 @@ Route::group(['prefix' => 'print-out/',                                 'as' => 
 });
 
 /*Academic Grouping */
-Route::group(['prefix' => '/',                                          'as' => '',                                             'namespace' => 'Academic\\'], function () {
+Route::group(['prefix' => '/',                                          'as' => '','namespace' => 'Academic\\'], function () {
 
     /*Payment Method Routes*/
     Route::get('payment-method',                    ['as' => 'payment-method',                  'middleware' => ['ability:super-admin,payment-method-index'],               'uses' => 'PaymentMethodController@index']);
@@ -1196,7 +1196,7 @@ Route::group(['prefix' => 'setting/',                                   'as' => 
 
 });
 
-/*EduFirm Super Suit Grouping */
+/*Amethitech Super Suit Grouping */
 Route::group(['prefix' => 'super-suit/',                                   'as' => 'super-suit',                                      'namespace' => 'SuperSuit\\'], function () {
     /* User Activity */
     Route::get('user-activity',                         ['as' => '.user-activity',                      'middleware' => ['ability:super-admin,user-activity-index'],                'uses' => 'UserActivityController@index']);

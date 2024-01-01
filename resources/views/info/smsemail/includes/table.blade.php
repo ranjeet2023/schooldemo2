@@ -45,6 +45,10 @@
                                     <div class="label label-primary arrowed-right arrowed-in">
                                         Email
                                     </div>
+                                <hr class="hr-2">
+                                    <div class="label label-primary arrowed-right arrowed-in">
+                                        Whatsapp
+                                    </div>
                                 @elseif($row->sms == 1)
                                     <div class="label label-info arrowed-right arrowed-in">
                                         SMS
@@ -53,6 +57,10 @@
                                     <div class="label label-primary arrowed-right arrowed-in">
                                         Email
                                     </div>
+                                @elseif($row->email == 1)
+                                <div class="label label-primary arrowed-right arrowed-in">
+                                    Whatsapp
+                                </div>
                                 @endif
                             </td>
                             <td width="10%">

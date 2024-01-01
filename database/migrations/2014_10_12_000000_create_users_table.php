@@ -44,11 +44,11 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 /*
- * Mr. Umesh Kumar Yadav
- * Business With Technology Pvt. Ltd.
- * Kathmandu-32 (Subidhanagar, Tinkune), Nepal
+ * Ranjeet kumar maurya
+ * Amethitech.
+ * India-uttar pradesh (amethi )
  * +977-9804752133, 9868156047
- * freelancerumeshnepal@gmail.com
+ * ranjeet@amethitech.com
  */
 }
 

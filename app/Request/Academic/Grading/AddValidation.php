@@ -31,7 +31,7 @@ class AddValidation extends FormRequest
     {
         return [
             'title'             => 'required | max:50 | unique:grading_types,title',
-            'name.*'              => 'required | max:2',
+            'name.*'              => 'required | max:25',
             'percentage_from'   => 'required',
             'percentage_to'     => 'required',
             'grade_point'       => 'required',

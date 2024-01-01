@@ -4,7 +4,7 @@
         {!! Form::open(['route' => 'info.smsemail.dueReminder', 'id' => 'send_reminder_message']) !!}
         <div class="clearfix">
             <span class="form-group due-reminder-submit">
-                <a class="btn-primary btn-sm message-send-btn" ><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Send Due Reminder SMS/Email Alert</a>
+                <a class="btn-primary btn-sm message-send-btn" ><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Send Due Reminder Sms/Email/Whatsapp Alert</a>
                 <a class="btn-success btn-sm bulk-due-slip" >Bulk Due Detail Slip <i class="fa fa-print" aria-hidden="true"></i></a>
                 <a class="btn-primary btn-sm short-due-slip" >Bulk Short Due Reminder Slip <i class="fa fa-print" aria-hidden="true"></i></a>
             </span>

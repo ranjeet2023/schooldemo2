@@ -92,6 +92,7 @@ class HomeController extends CollegeBaseController
             ->latest()
             ->get();
 
+
         /*Indicators*/
         $data['studentIndicator'] = Student::count();
         $data['staffIndicator'] = Staff::count();
@@ -240,6 +241,7 @@ class HomeController extends CollegeBaseController
         $drTransaction = $monthBase;
 
         /*cr*/
+        
         $monthBase = [0,0,0,0,0,0,0,0,0,0,0,0];
         $crTransaction = DB::table('transactions')
             ->select(DB::raw('MONTH(date) as month'), DB::raw('sum(cr_amount) as total'))

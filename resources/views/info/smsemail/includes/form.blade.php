@@ -6,6 +6,7 @@
             <div class="col-sm-8">
                 <label>{!! Form::radio('type[]','sms' ,true, ["class" => "ace", "id"=>"typeSms","onclick" => "messageTypeCondition()"]) !!}<span class="lbl"> SMS </span></label>
                 <label>{!! Form::radio('type[]','email' ,false, ["class" => "ace", "id"=>"typeEmail","onclick" => "messageTypeCondition()"]) !!}<span class="lbl"> E-mail</span></label>
+                <label>{!! Form::radio('type[]','whatsapp' ,false, ["class" => "ace", "id"=>"typeWhatsapp","onclick" => "messageTypeCondition()"]) !!}<span class="lbl">Whatsapp</span></label>
                 @include('includes.form_fields_validation_message', ['name' => 'type'])
             </div>
         </div>

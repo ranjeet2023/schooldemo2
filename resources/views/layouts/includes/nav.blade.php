@@ -185,7 +185,7 @@
                                     <li class="divider"></li>
                                     <li class="dropdown-header"><i class="fa fa-bullhorn" aria-hidden="true"></i> Alert</li>
                                     <li><a href="{{ route('info.notice') }}">User Notice</a></li>
-                                    <li><a href="{{ route('info.smsemail') }}">Send SMS/Email</a></li>
+                                    <li><a href="{{ route('info.smsemail') }}">Send Sms/Email/Whatsapp</a></li>
                                     <li><a href="{{ route('setting.alert') }}">Alert Templating</a></li>
                                     <li class="divider"></li>
                                     <li class="dropdown-header"><i class="fa fa-th-list" aria-hidden="true"></i> More</li>
@@ -220,7 +220,7 @@
                             <li><a href="{{ route('setting.sms') }}"><i class="fa fa-mobile bigger-110 blue"></i>&nbsp;SMS Setting</a></li>
                             <li><a href="{{ route('setting.email') }}"><i class="fa fa-envelope  bigger-110 blue"></i>&nbsp;E-Mail Setting</a></li>
                             <li><a href="{{ route('setting.alert') }}"><i class="fa fa-bell bigger-110 blue"></i>&nbsp;Alert Setting</a></li>
-                            <li><a href="{{ route('setting.payment-gateway') }}"><i class="fa fa-dollar  bigger-110 blue"></i>&nbsp;Payment Gateway</a></li>
+                            <li><a href="{{ route('setting.payment-gateway') }}"><i class="fa fa-rupee  bigger-110 blue"></i>&nbsp;Payment Gateway</a></li>
                             <li><a href="{{ route('setting.meeting') }}"><i class="fa fa-video-camera bigger-110 blue"></i>&nbsp;Meeting-Remote Class</a></li>
                         </ul>
                     </li>

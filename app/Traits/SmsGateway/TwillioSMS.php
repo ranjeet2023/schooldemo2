@@ -21,22 +21,33 @@ trait TwillioSMS{
         $sid    = $sms['SID'];
         $token  = $sms['Token'];
         $from  = $sms['FromNumber'];
-        $contactNumbers = $contactNumbers;
+        $contactNumbers = explode(',', $contactNumbers);
         $message = $message;
-
         $twilio = new Client($sid, $token);
-
         foreach($contactNumbers as $contact) {
-
+            // $message = $twilio->messages
+            // ->create("+916388780536", // to
+            //   array(
+            //     "from" => "+12059533997",
+            //     "body" => 'this is message that are great to you meeting'
+            //   )
+            // );
+            // $message = $twilio->messages
+            //     ->create('+91'.$contact,
+            //         array(
+            //             "body" => $message,
+            //             "from" => $from
+            //         )
+            //     );
             $message = $twilio->messages
-                ->create($contact,
-                    array(
-                        "body" => $message,
-                        "from" => $from
-                    )
-                );
-        }
+            ->create("whatsapp:+91".$contact, // to
+                array(
+                "from" => "whatsapp:+14155238886",
+                "body" => $message
+                )
+            );
 
+        }
     }
 
 }

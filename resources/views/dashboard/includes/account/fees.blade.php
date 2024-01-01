@@ -19,7 +19,7 @@
         </th>
 
         <th>
-            <i class="ace-icon fa fa-dollar blue"></i>Amount
+            <i class="ace-icon fa fa-rupee blue"></i>Amount
         </th>
     </tr>
     </thead>

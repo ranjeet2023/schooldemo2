@@ -1,12 +1,12 @@
 <?php
 
 /*
- * Mr. Umesh Kumar Yadav
- * Business With Technology Pvt. Ltd.
- * Kathmandu-32 (Subidhanagar, Tinkune), Nepal
- * +977-9868156047
- * freelancerumeshnepal@gmail.com
- * https://codecanyon.net/item/unlimited-edu-firm-school-college-information-management-system/21850988
+ * Ranjeet kumar maurya
+ * Amethitech.
+ * India-uttar pradesh (amethi )
+ * +91-7217645059
+ * ranjeet@amethitech.com
+ * 
  */
 
 namespace App\Http\Controllers\Student;
@@ -1083,6 +1083,7 @@ class StudentController extends CollegeBaseController
 
         $data['url'] = URL::current();
         $data['filter_query'] = $this->filter_query;
+        // dd($data);
 
         return view(parent::loadDataToView($this->view_path.'.transfer.index'), compact('data'));
     }

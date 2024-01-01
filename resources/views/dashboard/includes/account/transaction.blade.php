@@ -15,11 +15,11 @@
         </th>
 
         <th>
-            <i class="ace-icon fa fa-dollar blue"></i>Dr.Amount
+            <i class="ace-icon fa fa-rupee blue"></i>Dr.Amount
         </th>
 
         <th>
-            <i class="ace-icon fa fa-dollar blue"></i>Cr.Amount
+            <i class="ace-icon fa fa-rupee blue"></i>Cr.Amount
         </th>
     </tr>
     </thead>

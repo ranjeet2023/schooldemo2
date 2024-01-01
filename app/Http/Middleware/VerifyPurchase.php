@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Traits\PurchaseVerification;
+// use App\Traits\PurchaseVerification;
 use Closure;
 
 class VerifyPurchase
@@ -15,11 +15,11 @@ class VerifyPurchase
      * @return mixed
      */
 
-    use PurchaseVerification;
+    // use PurchaseVerification;
 
     public function handle($request, Closure $next)
     {
-        $this->getPurchaseDetail();
+        // $this->getPurchaseDetail();
         return $next($request);
     }
 }

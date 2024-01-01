@@ -68,7 +68,7 @@ class CollegeBaseController extends Controller
             $view->with('view_path', $this->view_path);
             $view->with('panel', $this->panel);
             $view->with('generalSetting', $this->getGeneralSetting());
-            $view->with('purchaseDetail', $this->getPurchaseDetail());
+            // $view->with('purchaseDetail', $this->getPurchaseDetail());
             $view->with('paymentGatewayStatus', $this->paymentGatewayStatus());
             $view->with('smsSetting', $this->getSmsSetting());
             $view->with('profileImageSrc', $this->profileImageSrc());
@@ -101,6 +101,7 @@ class CollegeBaseController extends Controller
 
         if(isset($data['general_setting']) && $data['general_setting'] != null){
             $licenseInfo = $this->getPurchaseDetail();
+            // dd($licenseInfo);
             if(isset($licenseInfo)) {
                 $expireAt = (isset($licenseInfo->sold_at)?Carbon::parse($licenseInfo->sold_at)->addYear():'');
                 //$body->expire = Carbon::parse($expire)->format('d-m-Y');

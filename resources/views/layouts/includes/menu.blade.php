@@ -1717,7 +1717,7 @@
                     <li class="{!! request()->is('info/smsemail*')?'active':'' !!} hover">
                         <a href="{{ route('info.smsemail') }}">
                             <i class="menu-icon fa fa-caret-right"></i>
-                            SMS / E-mail
+                            SMS / E-mail / Whatsapp
                         </a>
 
                         <b class="arrow"></b>
@@ -1761,12 +1761,12 @@
                             Documentation
                         </a>
                     </li>
-                    <li class="hover">
+                    {{-- <li class="hover">
                         <a href="" target="_blank">
                             <i class="menu-icon fa fa-caret-right"></i>
                             Buy New License
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
             @endif

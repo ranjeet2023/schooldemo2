@@ -1176,6 +1176,16 @@ Route::group(['prefix' => 'setting/',                                   'as' => 
     Route::post('email/{id}/update',       ['as' => '.email.update',                'middleware' => ['ability:super-admin,email-setting-edit'],                 'uses' => 'EmailSettingController@update']);
     Route::post('email/change-status',     ['as' => '.email.change-status',         'middleware' => ['ability:super-admin,email-setting-status-change'],        'uses' => 'EmailSettingController@statusChange']);
 
+    /* Whatsapp Setting Routes */
+
+    Route::get('whatsapp',                    ['as' => '.whatsapp',                           'middleware' => ['ability:super-admin,whatsapp-setting-index'],              'uses' => 'WhatsappSettingController@index']);
+    Route::get('whatsapp/add',                ['as' => '.whatsapp.add',                       'middleware' => ['ability:super-admin,whatsapp-setting-add'],                'uses' => 'WhatsappSettingController@add']);
+    Route::post('whatsapp/store',             ['as' => '.whatsapp.store',                     'middleware' => ['ability:super-admin,whatsapp-setting-add'],                'uses' => 'WhatsappSettingController@store']);
+    Route::get('whatsapp/{id}/edit',          ['as' => '.whatsapp.edit',                      'middleware' => ['ability:super-admin,whatsapp-setting-edit'],               'uses' => 'WhatsappSettingController@edit']);
+    Route::post('whatsapp/{id}/update',       ['as' => '.whatsapp.update',                    'middleware' => ['ability:super-admin,whatsapp-setting-edit'],               'uses' => 'WhatsappSettingController@update']);
+    Route::get('whatsapp/{id}/active',        ['as' => '.whatsapp.active',                    'middleware' => ['ability:super-admin,whatsapp-setting-active'],                      'uses' => 'WhatsappSettingController@Active']);
+    Route::get('whatsapp/{id}/in-active',     ['as' => '.whatsapp.in-active',                 'middleware' => ['ability:super-admin,whatsapp-setting-in-active'],                  'uses' => 'WhatsappSettingController@inActive']);
+
     /* Payment Gateway Setting Routes */
     Route::get('payment-gateway',                    ['as' => '.payment-gateway',                       'middleware' => ['ability:super-admin,payment-gateway-setting-index'],                'uses' => 'PaymentSettingController@index']);
     Route::get('payment-gateway/add',                ['as' => '.payment-gateway.add',                   'middleware' => ['ability:super-admin,payment-gateway-setting-add'],                  'uses' => 'PaymentSettingController@add']);

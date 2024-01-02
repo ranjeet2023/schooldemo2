@@ -493,6 +493,38 @@ class PermissionTableSeeder extends Seeder
                 'description' => 'In-Active SMS'
             ],
 
+             /*Whatsapp Setting*/
+            [
+                'group'=>'Whatsapp Setting',
+                'name' => 'whatsapp-setting-index',
+                'display_name' => 'Index',
+                'description' => 'Whatsapp Setting Index'
+            ],
+            [
+                'group'=>'Whatsapp Setting',
+                'name' => 'whatsapp-setting-add',
+                'display_name' => 'Add',
+                'description' => 'Whatsapp Setting Add'
+            ],
+            [
+                'group'=>'Whatsapp Setting',
+                'name' => 'whatsapp-setting-edit',
+                'display_name' => 'Edit',
+                'description' => 'Edit Whatsapp Setting'
+            ],
+            [
+                'group'=>'Whatsapp Setting',
+                'name' => 'whatsapp-setting-active',
+                'display_name' => 'Active',
+                'description' => 'Active Whatsapp'
+            ],
+            [
+                'group'=>'Whatsapp Setting',
+                'name' => 'whatsapp-setting-in-active',
+                'display_name' => 'In-Active',
+                'description' => 'In-Active Whatsapp'
+            ],
+
             /*Email Setting*/
             [
                 'group'=>'Email Setting',

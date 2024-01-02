@@ -51,6 +51,7 @@
                 /*type*/
                 $sms = $('#typeSms').is(':checked');
                 $email = $('#typeEmail').is(':checked');
+                $whatsapp = $('#typeWhatsapp').is(':checked');
 
                 /*Individual*/
                 var number = $('input[name="number"]').val();
@@ -63,20 +64,18 @@
                 var message = document.getElementById("smsmessage");
                 var message = (message.value).length; // This will now contain text of textarea
 
-                if($sms || $email){
+                var whatsapp = document.getElementById("whatsappmessage");
+                var whatsapp = (whatsapp.value).length; // This will now contain text of textarea
 
-                    if($sms && number === ''){
-                        toastr.info("Please, Fill At Least One Contact Number", "Info:");
-                        return false;
-                    }
 
+                if($sms || $email || $whatsapp){
                     if($sms && message < 8){
                         toastr.info("Message is Required With More Than 8 Character. When target is SMS", "Info:");
                         return false;
                     }
 
-                    if($email && email === ''){
-                        toastr.info("Please, Select Fill At Lease One Email ID", "Info:");
+                    if($whatsapp && whatsapp < 12){
+                        toastr.info("whatsapp Message is Required With More Than 12 Character. When target is whatsapp Message", "Info:");
                         return false;
                     }
 
@@ -90,6 +89,11 @@
                         return false;
                     }
 
+                    if($role){
+
+                    }else{
+                        toastr.info("Please, Select At Least One Target Group", "Info:");
+                        return false;                    }
                 }else{
                     toastr.info("Please, Select Message Type", "Info:");
                     return false;
@@ -98,6 +102,7 @@
             });
             /*Message End*/
             $('.email').css('display', 'none');
+            $('.whatsapp').css('display', 'none');
 
 
             $("#smsmessage").keyup(function(){
@@ -106,22 +111,34 @@
 
         });
 
-
         function messageTypeCondition(f) {
-            $sms = $('#typeSms').is(':checked');
-            $email = $('#typeEmail').is(':checked');
+            //alert('ok');
+             $sms = $('#typeSms').is(':checked');
+             $email = $('#typeEmail').is(':checked');
+             $whatsapp = $('#typeWhatsapp').is(':checked');
+
             if($sms) {
                 $('.email').css('display', 'none');
+                $('.whatsapp').css('display', 'none');
                 $('.sms').css('display', 'block');
+            }
+
+            if($whatsapp) {
+                $('.whatsapp').css('display', 'block');
+                $('.email').css('display', 'none');
+                $('.sms').css('display', 'none');
             }
 
             if($email) {
                 $('.email').css('display', 'block');
                 $('.sms').css('display', 'none');
+                $('.whatsapp').css('display', 'none');
             }
 
 
         }
+     
     </script>
     @include('includes.scripts.summarnote')
+    {{-- @include('includes.scripts.whatsappmessage') --}}
 @endsection

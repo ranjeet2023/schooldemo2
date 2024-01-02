@@ -4,6 +4,7 @@ namespace App\Traits;
 use App\Mail\EmailAlerts;
 use App\Models\EmailSetting;
 use App\Models\SmsSetting;
+use App\Models\WhatsappSetting;
 
 use App\Traits\SmsGateway\AakashNepalSMS;
 use App\Traits\SmsGateway\AfricasTalkingSMS;
@@ -30,6 +31,7 @@ use App\Traits\SmsGateway\springEdgeSMS;
 use App\Traits\SmsGateway\TextLocalSMS;
 use App\Traits\SmsGateway\TheSMSCentralSMS;
 use App\Traits\SmsGateway\TwillioSMS;
+use App\Traits\SmsGateway\TwillioWHATSAPP;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -49,6 +51,7 @@ trait SmsEmailScope{
     use Msg94SMS;
     use KeswaTechSMS;
     use TwillioSMS;
+    use TwillioWHATSAPP;
     use SmsAPI;
     use MessageBirdSMS;
     use ClickatelSMS;
@@ -193,7 +196,20 @@ trait SmsEmailScope{
 
     }
 
+    
+    public function sendWhatsapp($contactNumbers, $message)
+    {
 
+        if($contactNumbers == "")
+        return back()->with($this->message_warning, "No Any Contact Found. So Message Not Send In This Time. Please Try Again.");
+        /*get Setting*/
+        $whatsappSetting     = WhatsappSetting::where('status',1)->first();
+        if($whatsappSetting == null)
+           return back()->with($this->message_warning, "Whatsapp Setting Not Detected. Please Setting Your Whatsapp Detail.");
+        $activeProvider = $whatsappSetting->identity;
+        $this->TwillioWHATSAPP($contactNumbers, $message);
+
+    }
     /*EMAIL SENDING*/
     public function sendEmail($emailIds, $subject, $message){
         /*check internet connection for email sending*/
@@ -309,6 +325,16 @@ trait SmsEmailScope{
         $data['sms_setting'] = SmsSetting::where('status',1)->get();
         if(isset($data['sms_setting']) && $data['sms_setting']->count() > 0){
             $d = json_decode($data['sms_setting'],true);
+            $manageSetting = array_pluck($d,'config','identity');
+            return $manageSetting;
+        }
+    }
+
+    protected function getWhatsappSetting()
+    {
+        $data['whatsapp_setting'] = WhatsappSetting::where('status',1)->get();
+        if(isset($data['whatsapp_setting']) && $data['whatsapp_setting']->count() > 0){
+            $d = json_decode($data['whatsapp_setting'],true);
             $manageSetting = array_pluck($d,'config','identity');
             return $manageSetting;
         }

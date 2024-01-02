@@ -4,10 +4,10 @@ namespace App\Traits\SmsGateway;
 use Twilio\Rest\Client;
 
 
-trait TwillioSMS{
+trait TwillioWHATSAPP{
 
     /*Twilio SMS*/
-    public function twilioSMS($contactNumbers, $message)
+    public function TwillioWHATSAPP($contactNumbers, $message)
     {
         // Update the path below to your autoload.php,
         // see https://getcomposer.org/doc/01-basic-usage.md
@@ -16,23 +16,22 @@ trait TwillioSMS{
         // Your Account Sid and Auth Token from twilio.com/console
 
         /*get Setting*/
-        $smsSetting = $this->getSmsSetting();
-        $sms = json_decode($smsSetting['Twilio'],true);
-        $sid    = $sms['SID'];
-        $token  = $sms['Token'];
-        $from  = $sms['FromNumber'];
+        $whatsappSetting = $this->getWhatsappSetting();
+        $whatsapp = json_decode($whatsappSetting['Twilio'],true);
+        $sid    = $whatsapp['SID'];
+        $token  = $whatsapp['Token'];
+        $from  = $whatsapp['FromNumber'];
         $contactNumbers = explode(',', $contactNumbers);
         $message = $message;
         $twilio = new Client($sid, $token);
         foreach($contactNumbers as $contact) {
             $message = $twilio->messages
-                ->create('+91'.$contact,
-                    array(
-                        "body" => $message,
-                        "from" => $from
-                    )
-                );
-
+            ->create("whatsapp:+91".$contact, // to
+                array(
+                "from" => "whatsapp:".$from,
+                "body" => $message
+                )
+            );
         }
     }
 

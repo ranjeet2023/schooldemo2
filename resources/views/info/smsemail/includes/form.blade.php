@@ -37,8 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-8 email">
-        <div class="form-group">
+    <div class="col-md-8 email">                                                                                                                            <div class="form-group">
             {!! Form::label('subject', 'Subject', ['class' => 'col-sm-2 control-label']) !!}
             <div class="col-sm-10">
                 {!! Form::text('subject', null, ["class" => "form-control border-form"]) !!}
@@ -53,6 +52,15 @@
             </div>
         </div>
     </div>
+    <div class="col-md-8 whatsapp">
+        <div class="form-group">
+            {!! Form::label('whatsappMessage', 'Message', ['class' => 'col-sm-2 control-label']) !!}
+            <div class="col-sm-10">
+                {!! Form::textarea('whatsappMessage', null, ["class" => "form-control border-form", "id"=>"whatsappmessage","rows"=>"5"]) !!}
+                @include('includes.form_fields_validation_message', ['name' => 'whatsappMessage'])
+            </div>
+        </div>
+    </div>
 </div>
 <div class="clearfix form-actions">
     <div class="col-md-12 align-right">
@@ -60,7 +68,6 @@
             <i class="fa fa-undo bigger-110"></i>
             Reset
         </button>
-
         <button class="btn btn-info" type="submit" id="group-message-send-btn">
             <i class="fa fa-save bigger-110"></i>
             Send

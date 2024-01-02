@@ -8,10 +8,10 @@
  * 
  */
 /**
- * Created by PhpStorm.
- * User: Umesh Kumar Yadav
- * Date: 02/04/2018
- * Time: 12:38 PM
+ * .
+ * User: 
+ * Date: 
+ * Time: 
  */
 namespace App\Http\Controllers\Setting;
 use App\Http\Controllers\CollegeBaseController;
@@ -33,8 +33,8 @@ class SmsSettingController extends CollegeBaseController
 
     public function index()
     {
-        $data['smsSetting'] = SmsSetting::orderBy('identity')->get();
-        //dd($data['smsSetting']);
+        $data['smsSetting'] = SmsSetting::where('id',4)->orderBy('identity')->get();
+        // dd($data['smsSetting']);
         return view(parent::loadDataToView($this->view_path.'.index'), compact('data'));
     }
 

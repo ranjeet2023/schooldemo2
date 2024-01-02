@@ -42,11 +42,13 @@
     <script>
         $(document).ready(function () {
             $('.email').css('display', 'none');
+            $('.whatsapp').css('display', 'none');
             /*Send Message */
             $('#group-message-send-btn').click(function () {
                 /*type*/
                 $sms = $('#typeSms').is(':checked');
                 $email = $('#typeEmail').is(':checked');
+                $whatsapp = $('#typeWhatsapp').is(':checked');
 
                 /*Group*/
                 $role = $('.role').is(':checked');
@@ -58,9 +60,17 @@
                 var message = document.getElementById("smsmessage");
                 var message = (message.value).length; // This will now contain text of textarea
 
-                if($sms || $email){
+                var whatsapp = document.getElementById("whatsappmessage");
+                var whatsapp = (whatsapp.value).length; // This will now contain text of textarea
+
+                if($sms || $email || $whatsapp){
                     if($sms && message < 8){
                         toastr.info("Message is Required With More Than 8 Character. When target is SMS", "Info:");
+                        return false;
+                    }
+
+                    if($whatsapp && whatsapp < 12){
+                        toastr.info("whatsapp Message is Required With More Than 12 Character. When target is whatsapp Message", "Info:");
                         return false;
                     }
 
@@ -97,19 +107,30 @@
             //alert('ok');
              $sms = $('#typeSms').is(':checked');
              $email = $('#typeEmail').is(':checked');
+             $whatsapp = $('#typeWhatsapp').is(':checked');
+
             if($sms) {
                 $('.email').css('display', 'none');
+                $('.whatsapp').css('display', 'none');
                 $('.sms').css('display', 'block');
+            }
+
+            if($whatsapp) {
+                $('.whatsapp').css('display', 'block');
+                $('.email').css('display', 'none');
+                $('.sms').css('display', 'none');
             }
 
             if($email) {
                 $('.email').css('display', 'block');
                 $('.sms').css('display', 'none');
+                $('.whatsapp').css('display', 'none');
             }
 
 
         }
     </script>
     @include('includes.scripts.summarnote')
+    {{-- @include('includes.scripts.whatsappmessage') --}}
     @include('includes.scripts.datepicker_script')
 @endsection

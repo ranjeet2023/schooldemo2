@@ -219,6 +219,7 @@
                             <li><a href="{{ route('setting.general') }}"><i class="fa fa-cog  bigger-110 blue"></i>&nbsp;General Setting <span class="red">*</span></a></li>
                             <li><a href="{{ route('setting.sms') }}"><i class="fa fa-mobile bigger-110 blue"></i>&nbsp;SMS Setting</a></li>
                             <li><a href="{{ route('setting.email') }}"><i class="fa fa-envelope  bigger-110 blue"></i>&nbsp;E-Mail Setting</a></li>
+                            <li><a href="{{ route('setting.whatsapp') }}"><i class="fa fa-whatsapp  bigger-110 blue"></i>&nbsp;Whatsapp Setting</a></li>
                             <li><a href="{{ route('setting.alert') }}"><i class="fa fa-bell bigger-110 blue"></i>&nbsp;Alert Setting</a></li>
                             <li><a href="{{ route('setting.payment-gateway') }}"><i class="fa fa-rupee  bigger-110 blue"></i>&nbsp;Payment Gateway</a></li>
                             <li><a href="{{ route('setting.meeting') }}"><i class="fa fa-video-camera bigger-110 blue"></i>&nbsp;Meeting-Remote Class</a></li>

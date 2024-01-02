@@ -18,6 +18,7 @@ use App\Models\GuardianDetail;
 use App\Role;
 use App\Models\SmsEmail;
 use App\Models\SmsSetting;
+use App\Models\WhatsappSetting ;
 use App\Models\Staff;
 use App\Models\StaffDesignation;
 use App\Models\Student;
@@ -507,6 +508,7 @@ class SmsEmailController extends CollegeBaseController
         $message = $request->message;
         $subject = $request->subject;
         $emailMessage = $request->emailMessage;
+        $whatsappMessage = $request->whatsappMessage;
         $group = "";
         if($request->type){
             /*Now Send SMS On First Mobile Number*/
@@ -515,17 +517,14 @@ class SmsEmailController extends CollegeBaseController
                 $contactNumbers = $this->contactFilter($contactNumbers);
                 $contactNumbers= str_replace(' ','',$contactNumbers);
                 $smssuccess = $this->sendSMS($contactNumbers,$message);
-
                 /*store*/
                 /*$request->request->add(['sms' => 1]);
                 $request->request->add(['email' => 0]);
                 $request->request->add(['message' => $message]);
                 $request->request->add(['created_by' => auth()->user()->id]);
                 SmsEmail::create($request->all());*/
-
                 return back()->with($this->message_success, "SMS Send Successfully");
             }
-
             /*Now Send Email With Subject*/
             if(in_array("email",$request->type)){
                 $emailIds = explode(',',$emailIds);;
@@ -535,17 +534,22 @@ class SmsEmailController extends CollegeBaseController
                 $emailSuccess = $this->sendEmail($emailIds, $subject, $emailMessage);
                 if($emailSuccess != null)
                     return back();
-
                 /*store*/
                 $request->request->add(['group' => $group]);
                 $request->request->add(['email' => 1]);
                 $request->request->add(['message' => $emailMessage]);
                 $request->request->add(['created_by' => auth()->user()->id]);
                 SmsEmail::create($request->all());
-
                 return back()->with($this->message_success, "Email Send Successfully");
             }
 
+            if(in_array("whatsapp",$request->type)){
+                $contactNumbers = explode(',',$contactNumbers);
+                $contactNumbers = $this->contactFilter($contactNumbers);
+                $contactNumbers= str_replace(' ','',$contactNumbers);
+                $whatsappsuccess = $this->sendWhatsapp($contactNumbers,$whatsappMessage);
+                return back()->with($this->message_success, "Whatsapp Message Send Successfully");
+            }
         }else{
             $request->session()->flash($this->message_warning, 'Please, Select Message Type');
             return redirect()->route($this->base_route);

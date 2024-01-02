@@ -22,6 +22,7 @@ use App\Traits\SmsGateway\SmsAPI;
 use App\Traits\SmsGateway\SparrowSMS;
 use App\Traits\SmsGateway\TextLocalSMS;
 use App\Traits\SmsGateway\TwillioSMS;
+use App\Traits\SmsGateway\TwillioWHATSAPP;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;

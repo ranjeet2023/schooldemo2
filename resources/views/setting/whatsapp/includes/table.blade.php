@@ -8,8 +8,8 @@
         </div>
     <!-- div.table-responsive -->
         <div>
-            @if (isset($data['smsSetting']) && $data['smsSetting']->count() > 0)
-                @foreach($data['smsSetting'] as $Gateway)
+            @if (isset($data['whatsappSetting']) && $data['whatsappSetting']->count() > 0)
+                @foreach($data['whatsappSetting'] as $Gateway)
                 <a href="#{{$Gateway->identity}}" class=""><span class="text-uppercase label label-info" style="margin-bottom: 5px !important;"># {{$Gateway->identity}}</span></a>
                 @endforeach
             @endif
@@ -26,9 +26,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (isset($data['smsSetting']) && $data['smsSetting']->count() > 0)
+                    @if (isset($data['whatsappSetting']) && $data['whatsappSetting']->count() > 0)
                         @php($i = 1)
-                        @foreach($data['smsSetting'] as $Gateway)
+                        @foreach($data['whatsappSetting'] as $Gateway)
 
                             {!! Form::model($Gateway, ['route' => [$base_route.'.update', $Gateway->id], 'method' => 'POST', 'class' => 'form-horizontal', 'id' => 'validation-form', "enctype" => "multipart/form-data"]) !!}
                                 <tr>

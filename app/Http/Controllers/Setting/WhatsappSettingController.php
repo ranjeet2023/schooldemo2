@@ -17,14 +17,15 @@ namespace App\Http\Controllers\Setting;
 use App\Http\Controllers\CollegeBaseController;
 
 use App\Models\EmailSetting;
-use App\Models\PaymentSetting;
+use App\Models\SmsSetting;
+use App\Models\WhatsappSetting;
 use Illuminate\Http\Request;
 
-class PaymentSettingController extends CollegeBaseController
+class WhatsappSettingController extends CollegeBaseController
 {
-    protected $base_route = 'setting.payment-gateway';
-    protected $view_path = 'setting.payment';
-    protected $panel = 'Payment Setting';
+    protected $base_route = 'setting.whatsapp';
+    protected $view_path = 'setting.whatsapp';
+    protected $panel = 'Whatsapp Setting';
 
     public function __construct()
     {
@@ -33,9 +34,8 @@ class PaymentSettingController extends CollegeBaseController
 
     public function index()
     {
-        $data['paymentGateway'] = PaymentSetting::all();
-        $configurations = [];
-
+        $data['whatsappSetting'] = WhatsappSetting::orderBy('identity')->get();
+        // dd($data['whatsappSetting']);
         return view(parent::loadDataToView($this->view_path.'.index'), compact('data'));
     }
 
@@ -46,10 +46,7 @@ class PaymentSettingController extends CollegeBaseController
      */
     public function add()
     {
-        $data = [];
-        $permissions = Permission::all();
-        $data['permission'] = $permissions->groupBy('group');
-        return view(parent::loadDataToView($this->view_path.'.add'), compact('data'));
+
     }
 
     /**
@@ -60,14 +57,7 @@ class PaymentSettingController extends CollegeBaseController
      */
     public function store(Request $request)
     {
-        $role = Role::create($request->except(['permission','_token']));
 
-        foreach($request->permission as $key => $value){
-            $role->attachPermission($value);
-        }
-
-        $request->session()->flash($this->message_success, $this->panel. ' successfully added.');
-        return redirect()->route($this->base_route);
     }
 
     /**
@@ -101,7 +91,7 @@ class PaymentSettingController extends CollegeBaseController
      */
     public function update(Request $request, $id)
     {
-        if (!$paymentSetting = PaymentSetting::find($id)) return parent::invalidRequest();
+        if (!$paymentSetting = WhatsappSetting::find($id)) return parent::invalidRequest();
         $fetchData = $request->except('_token');
         $config = json_encode($fetchData);
         $paymentSetting->update([
@@ -120,22 +110,18 @@ class PaymentSettingController extends CollegeBaseController
      */
     public function delete(Request $request, $id)
     {
-        /*Delete Previous Permission*/
-        DB::table('paymentGateway')->where('id', $id)->delete();
 
-        $request->session()->flash($this->message_success, $this->panel. ' delete successfully.');
-        return redirect()->route($this->base_route);
     }
 
 
     public function active(request $request, $id)
     {
-        if (!$row = PaymentSetting::find($id)) return parent::invalidRequest();
+        if (!$row = WhatsappSetting::find($id)) return parent::invalidRequest();
 
         $request->request->add(['status' => 'active']);
 
-        $row->update($request->all());
-        PaymentSetting::whereNotIn('id',[$id])->update(['status' => 0]);
+       $row->update($request->all());
+       WhatsappSetting::whereNotIn('id',[$id])->update(['status' => 0]);
 
         $request->session()->flash($this->message_success, $row->reg_no.' '.$this->panel.' Active Successfully.');
         return redirect()->route($this->base_route);
@@ -143,7 +129,7 @@ class PaymentSettingController extends CollegeBaseController
 
     public function inActive(request $request, $id)
     {
-        if (!$row = PaymentSetting::find($id)) return parent::invalidRequest();
+        if (!$row = WhatsappSetting::find($id)) return parent::invalidRequest();
 
         $request->request->add(['status' => 'in-active']);
 

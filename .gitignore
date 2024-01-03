@@ -1,8 +1,10 @@
-/public/postalExchange
-/public/visitorLog
-/public/hot
-/public/storage
-/public/documents
-/public/images
-/public/downloads
-/public/assignments/*
+# /public/postalExchange
+# /public/visitorLog
+# /public/hot
+# /public/storage
+# /public/documents
+# /public/images
+# /public/downloads
+# /public/assignments/*
+.env
+.gitignore

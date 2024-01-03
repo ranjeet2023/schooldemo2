@@ -433,6 +433,7 @@ class SmsEmailController extends CollegeBaseController
         $message = $request->message;
         $subject = $request->subject;
         $emailMessage = $request->emailMessage;
+        $whatsappMessage = $request->whatsappMessage;
         $group = [];
 
         if ($request->has('chkIds')) {
@@ -487,6 +488,14 @@ class SmsEmailController extends CollegeBaseController
 
                 return back()->with($this->message_success, "Email Send Successfully");
             }
+
+            if(in_array("whatsapp",$request->type)){
+                $contactNumbers = $this->contactFilter($contactNumbers);
+                $contactNumbers= str_replace(' ','',$contactNumbers);
+                $whatsappsuccess = $this->sendWhatsapp($contactNumbers,$whatsappMessage);
+                return back()->with($this->message_success, "Whatsapp Message Send Successfully");
+            }
+
         }else{
             $request->session()->flash($this->message_warning, 'Please, Select Message Type');
             return redirect()->route($this->base_route);
@@ -503,8 +512,10 @@ class SmsEmailController extends CollegeBaseController
 
     public function individualSend(Request $request)
     {
+        // dd($request->all());
         $emailIds = $request->email;;
         $contactNumbers = $request->number;
+        $whatsappNumber = $request->whatsappNumber;
         $message = $request->message;
         $subject = $request->subject;
         $emailMessage = $request->emailMessage;
@@ -516,6 +527,7 @@ class SmsEmailController extends CollegeBaseController
                 $contactNumbers = explode(',',$contactNumbers);
                 $contactNumbers = $this->contactFilter($contactNumbers);
                 $contactNumbers= str_replace(' ','',$contactNumbers);
+                
                 $smssuccess = $this->sendSMS($contactNumbers,$message);
                 /*store*/
                 /*$request->request->add(['sms' => 1]);
@@ -527,9 +539,8 @@ class SmsEmailController extends CollegeBaseController
             }
             /*Now Send Email With Subject*/
             if(in_array("email",$request->type)){
-                $emailIds = explode(',',$emailIds);;
+                $emailIds = explode(',',$emailIds);
                 $emailIds = $this->emailFilter($emailIds);
-
                 $emailIds = str_replace(' ', '',$emailIds);
                 $emailSuccess = $this->sendEmail($emailIds, $subject, $emailMessage);
                 if($emailSuccess != null)
@@ -542,9 +553,8 @@ class SmsEmailController extends CollegeBaseController
                 SmsEmail::create($request->all());
                 return back()->with($this->message_success, "Email Send Successfully");
             }
-
             if(in_array("whatsapp",$request->type)){
-                $contactNumbers = explode(',',$contactNumbers);
+                $contactNumbers = explode(',',$whatsappNumber);
                 $contactNumbers = $this->contactFilter($contactNumbers);
                 $contactNumbers= str_replace(' ','',$contactNumbers);
                 $whatsappsuccess = $this->sendWhatsapp($contactNumbers,$whatsappMessage);

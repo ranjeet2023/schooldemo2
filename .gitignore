@@ -1,5 +1,3 @@
-/bootstrap/*
-/node_modules
 /public/postalExchange
 /public/visitorLog
 /public/hot
@@ -8,15 +6,5 @@
 /public/images
 /public/downloads
 /public/assignments/*
-/storage/*.key
 /vendor
-/ref
-/.vagrant
-/tests
-.idea
-.idea/*
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
 .env

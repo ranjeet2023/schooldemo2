@@ -6,6 +6,7 @@
             <div class="col-sm-8">
                 <label>{!! Form::radio('type[]','sms' ,true, ["class" => "ace", "id"=>"typeSms","onclick" => "messageTypeCondition()"]) !!}<span class="lbl"> SMS </span></label>
                 <label>{!! Form::radio('type[]','email' ,false, ["class" => "ace", "id"=>"typeEmail","onclick" => "messageTypeCondition()"]) !!}<span class="lbl"> E-mail</span></label>
+                <label>{!! Form::radio('type[]','whatsapp' ,false, ["class" => "ace", "id"=>"typeWhatsapp","onclick" => "messageTypeCondition()"]) !!}<span class="lbl">Whatsapp</span></label>
                 @include('includes.form_fields_validation_message', ['name' => 'type'])
             </div>
         </div>
@@ -67,6 +68,16 @@
             <div class="col-sm-10">
                 {!! Form::textarea('emailMessage', null, ["class" => "form-control border-form", "id"=>"summernote","rows"=>"5"]) !!}
                 @include('includes.form_fields_validation_message', ['name' => 'emailMessage'])
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9 whatsapp">
+        <div class="form-group">
+            {!! Form::label('whatsappMessage', 'Message', ['class' => 'col-sm-2 control-label']) !!}
+            <div class="col-sm-10">
+                {!! Form::textarea('whatsappMessage', null, ["class" => "form-control border-form","id"=>"whatsappmessage", "rows"=>"10"]) !!}
+                @include('includes.form_fields_validation_message', ['name' => 'whatsappMessage'])
+                <span class="black" id="count"></span>
             </div>
         </div>
     </div>

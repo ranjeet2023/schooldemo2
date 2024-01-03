@@ -58,6 +58,7 @@
                 /*type*/
                 $sms = $('#typeSms').is(':checked');
                 $email = $('#typeEmail').is(':checked');
+                $whatsapp = $('#typeWhatsapp').is(':checked');
 
 
                 var subject = $('input[name="subject"]').val();
@@ -67,7 +68,11 @@
                 var message = document.getElementById("smsmessage");
                 var message = (message.value).length; // This will now contain text of textarea
 
-                if($sms || $email){
+                var whatsapp = document.getElementById("whatsappmessage");
+                var whatsapp = (whatsapp.value).length; // This will now contain text of textarea
+
+ 
+                if($sms || $email || $whatsapp){
                     if($sms && message < 8){
                         toastr.info("Message is Required With More Than 8 Character. When target is SMS", "Info:");
                         return false;
@@ -80,6 +85,11 @@
 
                     if($email && emailMessage < 12){
                         toastr.info("Message is Required With More Than 12 Character. When target is SMS", "Info:");
+                        return false;
+                    }
+                    
+                    if($whatsapp && whatsapp < 12){
+                        toastr.info("whatsapp Message is Required With More Than 12 Character. When target is whatsapp Message", "Info:");
                         return false;
                     }
 
@@ -107,6 +117,7 @@
             });
             /*Message End*/
             $('.email').css('display', 'none');
+            $('.whatsapp').css('display', 'none');
 
 
             $("#smsmessage").keyup(function(){
@@ -118,17 +129,28 @@
 
         function messageTypeCondition(f) {
             //alert('ok');
-            $sms = $('#typeSms').is(':checked');
-            $email = $('#typeEmail').is(':checked');
+             $sms = $('#typeSms').is(':checked');
+             $email = $('#typeEmail').is(':checked');
+             $whatsapp = $('#typeWhatsapp').is(':checked');
+
             if($sms) {
                 $('.email').css('display', 'none');
+                $('.whatsapp').css('display', 'none');
                 $('.sms').css('display', 'block');
+            }
+
+            if($whatsapp) {
+                $('.whatsapp').css('display', 'block');
+                $('.email').css('display', 'none');
+                $('.sms').css('display', 'none');
             }
 
             if($email) {
                 $('.email').css('display', 'block');
                 $('.sms').css('display', 'none');
+                $('.whatsapp').css('display', 'none');
             }
+
 
         }
 

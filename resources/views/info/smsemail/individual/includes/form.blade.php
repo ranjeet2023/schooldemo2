@@ -53,10 +53,10 @@
         </div>
         <div class="col-md-12 whatsapp">
             <div class="form-group">
-                {!! Form::label('number', 'Number', ['class' => 'col-sm-2 control-label']) !!}
+                {!! Form::label('whatsappNumber', 'WhatsappNumber', ['class' => 'col-sm-2 control-label']) !!}
                 <div class="col-sm-10">
-                    {!! Form::text('number', null, ["class" => "form-control border-form"]) !!}
-                    @include('includes.form_fields_validation_message', ['name' => 'number'])
+                    {!! Form::text('whatsappNumber', null, ["class" => "form-control border-form"]) !!}
+                    @include('includes.form_fields_validation_message', ['name' => 'whatsappNumber'])
                 </div>
             </div>
             <div class="form-group">

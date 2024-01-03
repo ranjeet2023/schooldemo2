@@ -215,31 +215,31 @@ trait SmsEmailScope{
         /*check internet connection for email sending*/
         $connection = Parent::checkConnection();
         if(!$connection)
-            return back()->with($this->message_warning, $this->internet_status);
+        return back()->with($this->message_warning, $this->internet_status);
+    
+    $emailSetting = EmailSetting::first();
+    
+    if($emailSetting == null){
+        return back()->with($this->message_warning, "Email Setting Not Detected. Please Setting Your Out Going Email Detail.");
+    }
+    
+    if($emailSetting->status == "in-active")
+    return back()->with($this->message_warning, "Email Setting Not Active. Please Active First.");
 
-        $emailSetting = EmailSetting::first();
-
-        if($emailSetting == null){
-            return back()->with($this->message_warning, "Email Setting Not Detected. Please Setting Your Out Going Email Detail.");
-        }
-
-        if($emailSetting->status == "in-active")
-            return back()->with($this->message_warning, "Email Setting Not Active. Please Active First.");
-
-        /*sending email*/
-        $emailIds = explode(',',$emailIds);
+    /*sending email*/
+    $emailIds = explode(',',$emailIds);
 
 
-        /*Mail::to(['nepalcomputercare@gmail.com'])->send(new EmailAlerts([
-            'subject' => 'test',
-            'message' => 'sadfsadfsdfsdaf',
-        ]));*/
-
-        /*sending email*/
-        Mail::to($emailIds)->send(new EmailAlerts([
-            'subject' => $subject,
-            'message' => $message,
-        ]));
+    /*Mail::to(['nepalcomputercare@gmail.com'])->send(new EmailAlerts([
+        'subject' => 'test',
+        'message' => 'sadfsadfsdfsdaf',
+    ]));*/
+    
+    /*sending email*/
+    Mail::to($emailIds)->send(new EmailAlerts([
+        'subject' => $subject,
+        'message' => $message,
+    ]));
 
 
         /*Mail Queue*/

@@ -87,7 +87,7 @@
             <div class="form-group">
                 {!! Form::label('nationality', 'Nationality', ['class' => 'col-sm-2 control-label']) !!}
                 <div class="col-sm-2">
-                    {!! Form::text('nationality', null, ["placeholder" => "", "class" => "form-control border-form upper","required"]) !!}
+                    {!! Form::text('nationality', 'Indian', ["placeholder" => "", "class" => "form-control border-form upper"]) !!}
                     @include('includes.form_fields_validation_message', ['name' => 'nationality'])
                 </div>
 
@@ -115,7 +115,7 @@
 
                 {!! Form::label('mobile_1', 'Mobile 1', ['class' => 'col-sm-2 control-label']) !!}
                 <div class="col-sm-2">
-                    {!! Form::text('mobile_1', null, ["class" => "form-control border-form input-mask-mobile","required"]) !!}
+                    {!! Form::text('mobile_1', null, ["class" => "form-control border-form input-mask-mobile"]) !!}
                     @include('includes.form_fields_validation_message', ['name' => 'mobile_1'])
                 </div>
 
@@ -132,19 +132,19 @@
             <div class="form-group">
                 {!! Form::label('address', 'Address', ['class' => 'col-sm-1 control-label']) !!}
                 <div class="col-sm-3">
-                    {!! Form::text('address', null, ["class" => "form-control border-form upper","required"]) !!}
+                    {!! Form::text('address', null, ["class" => "form-control border-form upper"]) !!}
                     @include('includes.form_fields_validation_message', ['name' => 'address'])
                 </div>
 
                 {!! Form::label('state', 'State', ['class' => 'col-sm-1 control-label']) !!}
                 <div class="col-sm-3">
-                    {!! Form::text('state', null, ["class" => "form-control border-form upper","required"]) !!}
+                    {!! Form::text('state', null, ["class" => "form-control border-form upper"]) !!}
                     @include('includes.form_fields_validation_message', ['name' => 'state'])
                 </div>
 
                 {!! Form::label('country', 'Country', ['class' => 'col-sm-1 control-label']) !!}
                 <div class="col-sm-3">
-                    {!! Form::text('country', null, ["class" => "form-control border-form upper","required"]) !!}
+                    {!! Form::text('country', null, ["class" => "form-control border-form upper"]) !!}
                     @include('includes.form_fields_validation_message', ['name' => 'country'])
                 </div>
             </div>

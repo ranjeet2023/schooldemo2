@@ -53,7 +53,7 @@
         {{-- Academic --}}
         @ability('super-admin','academic')
         @if( isset($generalSetting) && $generalSetting->academic ==1)
-            <li class="hover">
+            <li  class="{!! request()->is('faculty*')|| request()->is('semester*') || request()->is('grading*') || request()->is('subject*') || request()->is('book-status*') || request()->is('bed-status*') || request()->is('year*') || request()->is('month*') || request()->is('day*') || request()->is('payment-method*') ?'active open':'' !!}  hover">
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon  fa fa-graduation-cap" aria-hidden="true"></i>
                 <span class="menu-text"> Academics </span>
@@ -119,7 +119,6 @@
                         </li>
                     </ul>
                 </li>
-
                 <li class="{!! request()->is('*status')?'active':'' !!} hover">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
@@ -173,8 +172,6 @@
                         </li>
                     </ul>
                 </li>
-
-
                 <li class="{!! request()->is('year*') || request()->is('month*')?'active':'' !!} hover">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
@@ -225,16 +222,14 @@
         {{-- Staff & Student --}}
         @ability('super-admin','student-staff')
             @if( isset($generalSetting) && $generalSetting->student_staff ==1)
-                <li class="{!! request()->is('student*')||request()->is('staff*')?'active open':'' !!}  hover">
+                <li class="{!! request()->is('student*')||request()->is('staff*') || request()->is('guardian*') ?'active open':'' !!}  hover">
                 <a href="#" class="dropdown-toggle">
                     <i class="menu-icon fa fa-users" aria-hidden="true"></i>
                     <span class="menu-text"> Student&Staff</span>
 
                     <b class="arrow fa fa-angle-down"></b>
                 </a>
-
                 <b class="arrow"></b>
-
                 <ul class="submenu">
                     <li class="{!! request()->is('student*')?'active open':'' !!} hover">
                         <a href="#" class="dropdown-toggle">

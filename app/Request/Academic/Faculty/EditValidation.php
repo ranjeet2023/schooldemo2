@@ -31,7 +31,6 @@ class EditValidation extends FormRequest
     {
         return [
             'faculty' => 'required | max:100 | unique:faculties,faculty,'.$this->request->get('id'),
-            'faculty_code'      => 'required',
         ];
     }
 

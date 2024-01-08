@@ -57,7 +57,7 @@ trait DateTimeScope{
     public function activeMonths()
     {
         $years = Month::Active()->pluck('title','id')->toArray();
-        return array_prepend($years,'Select Year','0');
+        return array_prepend($years,'Select Month','0');
     }
 
     public function dateToWord($date)

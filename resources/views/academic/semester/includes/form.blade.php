@@ -24,9 +24,9 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('semester', 'Course Find and Add', ['class' => 'col-sm-12 control-label align-center']) !!}
+    {!! Form::label('semester', 'Course/Subject Find and Add', ['class' => 'col-sm-12 control-label align-center']) !!}
     <div class="col-sm-12">
-        {!! Form::select('subject_id', [], null, ["placeholder" => "Type Course Name...", "class" => "col-xs-12 col-sm-12", "style" => "width: 100%;"]) !!}
+        {!! Form::select('subject_id', [], null, ["placeholder" => "Type Course/Subject Name...", "class" => "col-xs-12 col-sm-12", "style" => "width: 100%;"]) !!}
         @include('includes.form_fields_validation_message', ['name' => 'subject_id'])
         <hr>
         <div class="align-right">

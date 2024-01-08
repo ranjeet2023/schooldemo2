@@ -1,4 +1,4 @@
-<h4 class="header large lighter blue"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search Student</h4>
+<h4 class="header large lighter blue"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search Staff</h4>
 <div class="form-horizontal">
     <div class="form-group">
         {!! Form::label('Date', 'Date', ['class' => 'col-sm-2 control-label']) !!}

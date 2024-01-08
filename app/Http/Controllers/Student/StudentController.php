@@ -776,7 +776,7 @@ class StudentController extends CollegeBaseController
                 $errCount = $errCount+1;
                 $errors[] = "User Found, Please Delete.";
             }
-
+          
         //Document & Notes
             //Documents
             $document = $row->studentDocuments()->get();

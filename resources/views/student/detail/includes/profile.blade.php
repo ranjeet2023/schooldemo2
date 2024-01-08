@@ -109,13 +109,13 @@
         <div class="profile-user-info profile-user-info-striped">
             <div class="profile-info-row">
                 @if($data['student']->faculty !="")
-                    <div class="profile-info-name"> Faculty: </div>
+                    <div class="profile-info-name"> Faculty/Class: </div>
                     <div class="profile-info-value">
                         <span class="editable" id="faculty">{{  ViewHelper::getFacultyTitle( $data['student']->faculty ) }}</span>
                     </div>
                 @endif
                 @if($data['student']->semester != "")
-                    <div class="profile-info-name"> Semester :</div>
+                    <div class="profile-info-name"> Semester/Section :</div>
                     <div class="profile-info-value">
                         <span class="editable" id="semester">{{  ViewHelper::getSemesterTitle( $data['student']->semester ) }}</span>
                     </div>

@@ -28,7 +28,7 @@ use View, URL;
 class StaffAttendanceController extends CollegeBaseController
 {
     protected $base_route = 'attendance.staff';
-    protected $view_path = 'attendance.staff';
+protected $view_path = 'attendance.staff';
     protected $panel = 'Staff Attendance';
     protected $filter_query = [];
 

@@ -14,7 +14,7 @@
                             </label>
                         </th>
                         <th>S.N.</th>
-                        <th>SEM</th>
+                        <th>SEM/SEC</th>
                         <th>Subjects</th>
                         <th>Status</th>
                         <th></th>

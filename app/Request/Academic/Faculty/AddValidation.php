@@ -31,7 +31,6 @@ class AddValidation extends FormRequest
     {
         return [
             'faculty'       => 'required | max:100 | unique:faculties,faculty',
-            'faculty_code'      => 'required',
         ];
     }
 
